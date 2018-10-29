@@ -8,21 +8,21 @@ PRODUCT_PACKAGES += \
 
 # Use all private binaries
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/private/prebuilt/mokee/bin/$(MK_CPU_ABI),system/bin)
+    $(call find-copy-subdir-files,*,vendor/mk-priv/prebuilt/mokee/bin/$(MK_CPU_ABI),system/bin)
 
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.so,vendor/private/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib64) \
-    $(call find-copy-subdir-files,*.so,vendor/private/prebuilt/mokee/lib/armeabi-v7a,system/lib)
+    $(call find-copy-subdir-files,*.so,vendor/mk-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib64) \
+    $(call find-copy-subdir-files,*.so,vendor/mk-priv/prebuilt/mokee/lib/armeabi-v7a,system/lib)
 else
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.so,vendor/private/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib)
+    $(call find-copy-subdir-files,*.so,vendor/mk-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib)
 endif
 
 # Offline phone location database
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/private/prebuilt/mokee/media/location,system/media/location)
+    $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mk-priv/prebuilt/mokee/media/location,system/media/location)
 
 ifneq ($(filter armani condor deb dior falcon find7 flo gucci i9100 mako maserati spyder targa tomato umts_spyder wt88047,$(MK_BUILD)),)
 SMALL_BOARD_SYSTEMIMAGE_PARTITION := true
