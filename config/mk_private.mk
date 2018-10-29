@@ -24,9 +24,10 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/private/prebuilt/mokee/media/location,system/media/location)
 
-ifneq ($(filter armani condor deb dior falcon flo i9100 mako maserati spyder targa tomato umts_spyder,$(MK_BUILD)),)
+ifneq ($(filter armani condor deb dior falcon find7 flo gucci i9100 mako maserati spyder targa tomato umts_spyder wt88047,$(MK_BUILD)),)
 SMALL_BOARD_SYSTEMIMAGE_PARTITION := true
 TARGET_BOOTANIMATION_HALF_RES := true
+USE_REDUCED_CJK_FONT_WEIGHTS := true
 endif
 
 # Default input method apps
@@ -51,10 +52,13 @@ PRODUCT_PACKAGES += \
 endif
 
 # Disable dex-preopt of some devices to fix compile.
-ifneq ($(filter h811 h815 h830 h850 jason kccat6 kiwi lentislte nx510j nx549j nx563j nx595j s2 z2pro zl1 zoom,$(MK_BUILD)),)
+ifneq ($(filter h811 h815 h830 h850,$(MK_BUILD)),)
 WITH_DEXPREOPT := false
 endif
 
-# Default sound effects app
-PRODUCT_PACKAGES += \
-    AudioFX
+# Use MoKee build keys
+ifneq ($(filter HISTORY NIGHTLY RELEASE,$(MK_BUILDTYPE)),)
+ifneq (${DEFAULT_MOKEE_CERTIFICATE},)
+PRODUCT_DEFAULT_DEV_CERTIFICATE := ${DEFAULT_MOKEE_CERTIFICATE}/releasekey
+endif
+endif
