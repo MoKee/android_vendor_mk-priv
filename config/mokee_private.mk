@@ -42,11 +42,11 @@ endif
 # Disable dex-preopt of some devices to save space.
 ifeq ($(SMALL_BOARD_SYSTEMIMAGE_PARTITION),true)
 # Include MK audio files
-include vendor/mk/config/mk_audio_mini.mk
+include vendor/mk/config/mokee_audio_mini.mk
 WITH_DEXPREOPT := false
 else
 # Include MK audio files
-include vendor/mk/config/mk_audio.mk
+include vendor/mk/config/mokee_audio.mk
 PRODUCT_PACKAGES += \
     vim
 endif
@@ -57,8 +57,8 @@ WITH_DEXPREOPT := false
 endif
 
 # Use MoKee build keys
-ifneq ($(filter HISTORY NIGHTLY RELEASE,$(MK_BUILDTYPE)),)
-ifneq (${DEFAULT_MOKEE_CERTIFICATE},)
-PRODUCT_DEFAULT_DEV_CERTIFICATE := ${DEFAULT_MOKEE_CERTIFICATE}/releasekey
-endif
+ifneq (${PRODUCT_DEFAULT_MOKEE_CERTIFICATE},)
+PRODUCT_DEFAULT_DEV_CERTIFICATE := ${PRODUCT_DEFAULT_MOKEE_CERTIFICATE}/releasekey
+else
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/private/build/target/product/security/releasekey
 endif
