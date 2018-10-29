@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-ifeq ($(PLATFORM_SDK_VERSION), 25)
-
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -32,5 +30,3 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_CERTIFICATE := PRESIGNED
 
 include $(BUILD_PREBUILT)
-
-endif
