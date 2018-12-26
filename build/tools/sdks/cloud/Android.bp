@@ -18,6 +18,7 @@ java_library_static {
         "cloud-prebuilt",
     ],
     no_framework_libs: true,
+    sdk_version: "current",
 }
 
 java_import {
