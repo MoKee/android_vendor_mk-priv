@@ -19,6 +19,7 @@ java_library_static {
         "jpush-prebuilt",
     ],
     no_framework_libs: true,
+    sdk_version: "current",
 }
 
 java_import {
