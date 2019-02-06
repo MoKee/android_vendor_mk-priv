@@ -1,7 +1,7 @@
 # Use all private apps
 PRODUCT_PACKAGES += \
     Lawnchair \
-    LawnFeed \
+    Lawnfeed \
     MoKeePay \
     Phonograph \
     ViaBrowser

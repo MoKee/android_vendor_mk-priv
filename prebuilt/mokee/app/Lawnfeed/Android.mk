@@ -18,11 +18,11 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := LawnFeed
+LOCAL_MODULE := Lawnfeed
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRIVILEGED_MODULE := true
 
-LOCAL_SRC_FILES := LawnFeed.apk
+LOCAL_SRC_FILES := Lawnfeed.apk
 
 LOCAL_MODULE_CLASS := APPS
 LOCAL_BUILT_MODULE_STEM := package.apk
