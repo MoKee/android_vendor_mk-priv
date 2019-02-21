@@ -36,7 +36,7 @@ PRODUCT_PACKAGES += \
     LatinIME
 else
 PRODUCT_PACKAGES += \
-    GoogleIntl
+    Gboard
 endif
 
 # Disable dex-preopt of some devices to save space.
