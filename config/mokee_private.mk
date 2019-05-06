@@ -6,10 +6,6 @@ PRODUCT_PACKAGES += \
     Phonograph \
     ViaBrowser
 
-# Use all private binaries
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/mk-priv/prebuilt/mokee/bin/$(MK_CPU_ABI),system/bin)
-
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
 PRODUCT_COPY_FILES += \
