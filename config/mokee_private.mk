@@ -51,11 +51,6 @@ PRODUCT_PACKAGES += \
     vim
 endif
 
-# Disable dex-preopt of some devices to fix compile.
-ifneq ($(filter h811 h815 h830 h850,$(MK_BUILD)),)
-WITH_DEXPREOPT := false
-endif
-
 # Use MoKee build keys
 ifneq (${PRODUCT_DEFAULT_MOKEE_CERTIFICATE},)
 PRODUCT_DEFAULT_DEV_CERTIFICATE := ${PRODUCT_DEFAULT_MOKEE_CERTIFICATE}/releasekey
