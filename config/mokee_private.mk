@@ -57,3 +57,8 @@ PRODUCT_DEFAULT_DEV_CERTIFICATE := ${PRODUCT_DEFAULT_MOKEE_CERTIFICATE}/releasek
 else
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/mk-priv/build/target/product/security/releasekey
 endif
+
+# Use MoKee Java Source Overlays
+ifneq ($(filter PREMIUM,$(MK_BUILDTYPE)),)
+JAVA_SOURCE_OVERLAYS := framework|vendor/mk-priv/overlay/premium/frameworks/base|**/*.java
+endif
