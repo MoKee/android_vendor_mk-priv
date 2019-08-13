@@ -1,3 +1,19 @@
+#
+# Copyright (C) 2019 The MoKee Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 # Use all private apps
 PRODUCT_PACKAGES += \
     Aegis \
@@ -25,12 +41,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mk-priv/prebuilt/mokee/media/location,system/media/location)
 
-ifneq ($(filter dior find7 m8d m8,$(MK_BUILD)),)
-SMALL_BOARD_SYSTEMIMAGE_PARTITION := true
-TARGET_BOOTANIMATION_HALF_RES := true
-USE_REDUCED_CJK_FONT_WEIGHTS := true
-endif
-
 # Default input method apps
 ifeq ($(filter armeabi armeabi-v7a arm64-v8a,$(MK_CPU_ABI)),)
 PRODUCT_PACKAGES += \
@@ -40,11 +50,19 @@ PRODUCT_PACKAGES += \
     Gboard
 endif
 
-# Disable dex-preopt of some devices to save space.
-ifeq ($(SMALL_BOARD_SYSTEMIMAGE_PARTITION),true)
+# Optimize for low-end devices
+ifneq ($(filter dior find7 m8d m8,$(MK_BUILD)),)
 # Include MK audio files
 include vendor/mk/config/mokee_audio_mini.mk
-WITH_DEXPREOPT := false
+TARGET_BOOTANIMATION_HALF_RES := true
+USE_REDUCED_CJK_FONT_WEIGHTS := true
+# Speed profile services and wifi-service to reduce RAM and storage.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+# Always preopt extracted APKs to prevent extracting out of the APK for gms
+# modules.
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+# Do not generate libartd.
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 else
 # Include MK audio files
 include vendor/mk/config/mokee_audio.mk
