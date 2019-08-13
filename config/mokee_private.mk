@@ -51,7 +51,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Optimize for low-end devices
-ifneq ($(filter dior find7 m8d m8,$(MK_BUILD)),)
+ifneq ($(filter dior find7 gucci m8d m8 wt88047,$(MK_BUILD)),)
 # Include MK audio files
 include vendor/mk/config/mokee_audio_mini.mk
 TARGET_BOOTANIMATION_HALF_RES := true
