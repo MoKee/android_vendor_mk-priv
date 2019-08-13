@@ -41,15 +41,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mk-priv/prebuilt/mokee/media/location,system/media/location)
 
-# Default input method apps
-ifeq ($(filter armeabi armeabi-v7a arm64-v8a,$(MK_CPU_ABI)),)
-PRODUCT_PACKAGES += \
-    LatinIME
-else
-PRODUCT_PACKAGES += \
-    Gboard
-endif
-
 # Optimize for low-end devices
 ifneq ($(filter dior find7 gucci m8d m8 wt88047,$(MK_BUILD)),)
 # Include MK audio files
@@ -61,12 +52,22 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 # Always preopt extracted APKs to prevent extracting out of the APK for gms
 # modules.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+PRODUCT_DEFAULT_INPUT_METHOD := LatinIME
 else
 # Include MK audio files
 include vendor/mk/config/mokee_audio.mk
 PRODUCT_PACKAGES += \
     vim
+ifeq ($(filter armeabi armeabi-v7a arm64-v8a,$(MK_CPU_ABI)),)
+PRODUCT_DEFAULT_INPUT_METHOD := LatinIME
+else
+PRODUCT_DEFAULT_INPUT_METHOD := Gboard
 endif
+endif
+
+# Default input method apps
+PRODUCT_PACKAGES += \
+    $(PRODUCT_DEFAULT_INPUT_METHOD)
 
 # Use MoKee build keys
 ifneq (${PRODUCT_DEFAULT_MOKEE_CERTIFICATE},)
