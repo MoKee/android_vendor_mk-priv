@@ -61,8 +61,6 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 # Always preopt extracted APKs to prevent extracting out of the APK for gms
 # modules.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-# Do not generate libartd.
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 else
 # Include MK audio files
 include vendor/mk/config/mokee_audio.mk
