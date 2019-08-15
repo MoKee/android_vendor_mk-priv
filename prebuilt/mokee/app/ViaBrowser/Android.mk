@@ -21,7 +21,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := ViaBrowser
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := ViaBrowser.apk
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 
 LOCAL_MODULE_CLASS := APPS
 LOCAL_BUILT_MODULE_STEM := package.apk
