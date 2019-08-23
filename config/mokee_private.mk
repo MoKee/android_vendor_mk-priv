@@ -19,6 +19,7 @@ PRODUCT_PACKAGES += \
     Aegis \
     Lawnchair \
     Lawnfeed \
+    Longshot \
     MoKeePay \
     Phonograph \
     ViaBrowser
