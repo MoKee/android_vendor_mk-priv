@@ -14,14 +14,15 @@
 
 java_library_static {
     name: "mokee-cloud",
+    host_supported: false,
     static_libs: [
         "cloud-prebuilt",
     ],
     no_framework_libs: true,
-    sdk_version: "current",
 }
 
 java_import {
     name: "cloud-prebuilt",
+    installable: true,
     jars: ["cloud.jar"],
 }
