@@ -20,7 +20,8 @@ PRODUCT_PACKAGES += \
     Longshot \
     MoKeePay \
     Phonograph \
-    ViaBrowser
+    ViaBrowser \
+    WarpShare
 
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
