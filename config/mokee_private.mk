@@ -17,8 +17,6 @@
 # Use all private apps
 PRODUCT_PACKAGES += \
     Aegis \
-    Lawnchair \
-    Lawnfeed \
     MoKeePay \
     Phonograph \
     ViaBrowser
