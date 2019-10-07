@@ -20,7 +20,7 @@ java_library_static {
         "cloud-prebuilt",
     ],
     no_framework_libs: true,
-    sdk_version: "28",
+    sdk_version: "core_current",
 }
 
 java_import {
