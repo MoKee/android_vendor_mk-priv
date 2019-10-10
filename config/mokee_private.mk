@@ -17,6 +17,7 @@
 # Use all private apps
 PRODUCT_PACKAGES += \
     Aegis \
+    Longshot \
     MoKeePay \
     Phonograph \
     ViaBrowser
