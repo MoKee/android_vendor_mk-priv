@@ -24,20 +24,20 @@ PRODUCT_PACKAGES += \
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib64) \
-    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/armeabi-v7a,system/lib)
+    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),$(TARGET_COPY_OUT_SYSTEM)/lib64) \
+    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/armeabi-v7a,$(TARGET_COPY_OUT_SYSTEM)/lib)
 else ifeq ($(MK_CPU_ABI),x86_64)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib64) \
-    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/x86,system/lib)
+    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),$(TARGET_COPY_OUT_SYSTEM)/lib64) \
+    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/x86,$(TARGET_COPY_OUT_SYSTEM)/lib)
 else
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),system/lib)
+    $(call find-copy-subdir-files,*.so,vendor/mokee-priv/prebuilt/mokee/lib/$(MK_CPU_ABI),$(TARGET_COPY_OUT_SYSTEM)/lib)
 endif
 
 # Offline phone location database
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mokee-priv/prebuilt/mokee/media/location,system/media/location)
+    $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mokee-priv/prebuilt/mokee/media/location,$(TARGET_COPY_OUT_SYSTEM)/media/location)
 
 # Optimize for low-end devices
 ifneq ($(filter aries armani dior find7 gucci m8d m8 wt88047,$(MK_BUILD)),)
