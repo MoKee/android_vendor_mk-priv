@@ -82,3 +82,13 @@ endif
 ifneq ($(filter PREMIUM,$(MK_BUILDTYPE)),)
 JAVA_SOURCE_OVERLAYS := framework|vendor/mk-priv/overlay/premium/frameworks/base|**/*.java
 endif
+
+# Conditional to building on linux, as dex2oat currently does not work on darwin.
+ifeq ($(HOST_OS),linux)
+  ifeq ($(FORCE_WITHOUT_DEXPREOPT),true)
+    WITH_DEXPREOPT := false
+    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
+  else
+    WITH_DEXPREOPT := true
+  endif
+endif
