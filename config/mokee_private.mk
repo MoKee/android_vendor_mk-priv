@@ -78,3 +78,10 @@ endif
 ifneq ($(filter PREMIUM,$(MK_BUILDTYPE)),)
 JAVA_SOURCE_OVERLAYS := framework|vendor/mokee-priv/overlay/premium/frameworks/base|**/*.java
 endif
+
+# ART configuration
+ifneq ($(filter EXPERIMENTAL,$(MK_BUILDTYPE)),)
+WITH_DEXPREOPT ?= false
+else
+WITH_DEXPREOPT := true
+endif
