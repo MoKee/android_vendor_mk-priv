@@ -77,6 +77,4 @@ PRODUCT_PACKAGES += \
 # Use MoKee build keys
 ifneq (${PRODUCT_MOKEE_DEV_CERTIFICATE},)
 PRODUCT_DEFAULT_DEV_CERTIFICATE := ${PRODUCT_MOKEE_DEV_CERTIFICATE}/releasekey
-else
-PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/mk-priv/build/target/product/security/releasekey
 endif
