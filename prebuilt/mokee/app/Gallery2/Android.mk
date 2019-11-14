@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The MoKee Open Source Project
+# Copyright (C) 2018-2019 The MoKee Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +19,14 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := Gallery2
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
-
-LOCAL_MODULE_CLASS := APPS
 LOCAL_BUILT_MODULE_STEM := package.apk
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_CERTIFICATE := releasekey
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/$(LOCAL_MODULE).apk
+
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_DEX_PREOPT := nostripping
 
 include $(BUILD_PREBUILT)
