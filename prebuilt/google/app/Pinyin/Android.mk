@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 The MoKee Open Source Project
+# Copyright (C) 2016-2019 The MoKee Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,19 +19,18 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := Pinyin
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_MODULE_CLASS := APPS
 LOCAL_BUILT_MODULE_STEM := package.apk
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_CERTIFICATE := PRESIGNED
-
-LOCAL_DEX_PREOPT := false
-
 ifeq ($(TARGET_ARCH),arm)
-LOCAL_SRC_FILES := armeabi-v7a/$(LOCAL_MODULE).apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/armeabi-v7a/$(LOCAL_MODULE).apk
 else
-LOCAL_SRC_FILES := arm64-v8a/$(LOCAL_MODULE).apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/arm64-v8a/$(LOCAL_MODULE).apk
 endif
+
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_DEX_PREOPT := false
 
 include $(BUILD_PREBUILT)
