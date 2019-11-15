@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2018-2019 The MoKee Open Source Project
 #
@@ -27,6 +28,6 @@ LOCAL_BUILT_MODULE_STEM := package.apk
 LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/$(LOCAL_MODULE).apk
 
 LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_DEX_PREOPT := nostripping
+LOCAL_DEX_PREOPT := false
 
 include $(BUILD_PREBUILT)
