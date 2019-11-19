@@ -44,7 +44,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,mokee-phonelocation.dat,vendor/mk-priv/prebuilt/mokee/media/location,system/media/location)
 
 # Optimize for low-end devices
-ifneq ($(filter aries armani dior find7 gucci m8d m8 wt88047,$(MK_BUILD)),)
+ifneq ($(filter aries armani dior find7 gucci jasmine_sprout m8d m8 wt88047,$(MK_BUILD)),)
 # Include MK audio files
 include vendor/mk/config/mokee_audio_mini.mk
 TARGET_BOOTANIMATION_HALF_RES := true
