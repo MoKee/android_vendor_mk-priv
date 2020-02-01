@@ -26,29 +26,9 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
 LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 
-LOCAL_PREBUILT_JNI_LIBS_arm := \
-    @lib/armeabi-v7a/libNativeImageProcessor.so \
-    @lib/armeabi-v7a/libpano_video_renderer.so \
-    @lib/armeabi-v7a/libpanorenderer.so \
-    @lib/armeabi-v7a/libpl_droidsonroids_gif.so
+JNI_LIBS := $(shell unzip -l $(LOCAL_PATH)/$(LOCAL_SRC_FILES) |grep 'lib/$(TARGET_CPU_ABI).*.so' |awk '{print $$NF}')
 
-LOCAL_PREBUILT_JNI_LIBS_arm64 := \
-    @lib/arm64-v8a/libNativeImageProcessor.so \
-    @lib/arm64-v8a/libpano_video_renderer.so \
-    @lib/arm64-v8a/libpanorenderer.so \
-    @lib/arm64-v8a/libpl_droidsonroids_gif.so
-
-LOCAL_PREBUILT_JNI_LIBS_x86 := \
-    @lib/x86/libNativeImageProcessor.so \
-    @lib/x86/libpano_video_renderer.so \
-    @lib/x86/libpanorenderer.so \
-    @lib/x86/libpl_droidsonroids_gif.so
-
-LOCAL_PREBUILT_JNI_LIBS_x86_64 := \
-    @lib/x86_64/libNativeImageProcessor.so \
-    @lib/x86_64/libpano_video_renderer.so \
-    @lib/x86_64/libpanorenderer.so \
-    @lib/x86_64/libpl_droidsonroids_gif.so
+LOCAL_PREBUILT_JNI_LIBS := $(patsubst %,@%,$(JNI_LIBS))
 
 LOCAL_CERTIFICATE := releasekey
 
