@@ -46,4 +46,27 @@ LOCAL_DEX_PREOPT := false
 
 LOCAL_OVERRIDES_PACKAGES += Launcher2 Launcher3 Launcher3QuickStep
 
+LOCAL_REQUIRED_MODULES += \
+    privapp_whitelist_ch.deletescape.lawnchair.ci.xml \
+    privapp_whitelist_ch.deletescape.lawnchair.ci-ext.xml
+
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp_whitelist_ch.deletescape.lawnchair.ci.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp_whitelist_ch.deletescape.lawnchair.ci-ext.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
