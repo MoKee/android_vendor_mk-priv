@@ -31,4 +31,15 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 
 LOCAL_CERTIFICATE := platform
 
+LOCAL_REQUIRED_MODULES += com.mokee.aegis_whitelist
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.mokee.aegis_whitelist
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/sysconfig
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := com.mokee.aegis_whitelist.xml
 include $(BUILD_PREBUILT)
