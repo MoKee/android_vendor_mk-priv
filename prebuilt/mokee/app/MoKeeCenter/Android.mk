@@ -32,4 +32,26 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_DEX_PREOPT := false
 
+LOCAL_REQUIRED_MODULES := \
+    default_permissions_com.mokee.center.xml \
+    com.mokee.center_whitelist
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := default_permissions_com.mokee.center.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/default-permissions
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.mokee.center_whitelist
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/sysconfig
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := com.mokee.center_whitelist.xml
 include $(BUILD_PREBUILT)
