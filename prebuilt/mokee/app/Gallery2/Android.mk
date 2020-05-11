@@ -31,6 +31,7 @@ JNI_LIBS := $(shell unzip -l $(LOCAL_PATH)/$(LOCAL_SRC_FILES) |grep 'lib/$(TARGE
 LOCAL_PREBUILT_JNI_LIBS := $(patsubst %,@%,$(JNI_LIBS))
 
 LOCAL_CERTIFICATE := releasekey
+LOCAL_PRODUCT_MODULE := true
 
 LOCAL_REQUIRED_MODULES := privapp_whitelist_com.android.gallery3d.xml
 
