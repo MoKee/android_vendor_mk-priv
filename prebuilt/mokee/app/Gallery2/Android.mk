@@ -32,4 +32,15 @@ LOCAL_PREBUILT_JNI_LIBS := $(patsubst %,@%,$(JNI_LIBS))
 
 LOCAL_CERTIFICATE := releasekey
 
+LOCAL_REQUIRED_MODULES := privapp_whitelist_com.android.gallery3d.xml
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp_whitelist_com.android.gallery3d.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
