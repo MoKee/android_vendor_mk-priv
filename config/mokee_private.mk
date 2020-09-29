@@ -59,7 +59,7 @@ else
 include vendor/mokee/config/mokee_audio.mk
 PRODUCT_PACKAGES += \
     vim
-ifeq ($(filter armeabi armeabi-v7a arm64-v8a,$(MK_CPU_ABI)),)
+ifeq ($(filter armeabi armeabi-v7a arm64-v8a x86 x86_64,$(MK_CPU_ABI)),)
 PRODUCT_DEFAULT_INPUT_METHOD := LatinIME
 else
 PRODUCT_DEFAULT_INPUT_METHOD := Gboard
