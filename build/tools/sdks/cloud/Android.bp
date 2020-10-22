@@ -19,7 +19,6 @@ java_library_static {
     static_libs: [
         "cloud-prebuilt",
     ],
-    no_framework_libs: true,
     sdk_version: "core_current",
 }
 
