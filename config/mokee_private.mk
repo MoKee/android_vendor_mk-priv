@@ -16,7 +16,6 @@
 
 # Use all private apps
 PRODUCT_PACKAGES += \
-    Longshot \
     MoKeePay \
     Phonograph \
     ViaBrowser \
