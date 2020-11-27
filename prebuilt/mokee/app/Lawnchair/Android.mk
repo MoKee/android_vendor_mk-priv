@@ -26,17 +26,9 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
 LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/$(LOCAL_MODULE).apk
 
-LOCAL_PREBUILT_JNI_LIBS_arm := \
-    lib/armeabi-v7a/libhoko_blur.so
+JNI_LIBS := $(shell unzip -l $(LOCAL_PATH)/$(LOCAL_SRC_FILES) |grep 'lib/$(TARGET_CPU_ABI).*.so' |awk '{print $$NF}')
 
-LOCAL_PREBUILT_JNI_LIBS_arm64 := \
-    lib/arm64-v8a/libhoko_blur.so
-
-LOCAL_PREBUILT_JNI_LIBS_x86 := \
-    lib/x86/libhoko_blur.so
-
-LOCAL_PREBUILT_JNI_LIBS_x86_64 := \
-    lib/x86_64/libhoko_blur.so
+LOCAL_PREBUILT_JNI_LIBS := $(patsubst %,@%,$(JNI_LIBS))
 
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PRODUCT_MODULE := true
