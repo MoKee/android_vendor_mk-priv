@@ -16,6 +16,7 @@
 
 # Use all private apps
 PRODUCT_PACKAGES += \
+    Lawnchair \
     MoKeePay \
     Phonograph \
     ViaBrowser \
