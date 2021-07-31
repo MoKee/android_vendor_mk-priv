@@ -31,7 +31,7 @@ JNI_LIBS := $(shell unzip -l $(LOCAL_PATH)/$(LOCAL_MODULE).apk |grep 'lib/$(TARG
 LOCAL_PREBUILT_JNI_LIBS := $(patsubst %,@%,$(JNI_LIBS))
 
 LOCAL_PRIVILEGED_MODULE := true
-LOCAL_PRODUCT_MODULE := true
+LOCAL_SYSTEM_EXT_MODULE := true
 
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_DEX_PREOPT := false
@@ -39,14 +39,14 @@ LOCAL_DEX_PREOPT := false
 LOCAL_OVERRIDES_PACKAGES += Launcher2 Launcher3 Launcher3QuickStep
 
 LOCAL_REQUIRED_MODULES += \
-    privapp_whitelist_ch.deletescape.lawnchair.ci.xml \
-    privapp_whitelist_ch.deletescape.lawnchair.ci-ext.xml
+    privapp_whitelist_app.lawnchair.xml \
+    privapp_whitelist_app.lawnchair-ext.xml
 
 
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := privapp_whitelist_ch.deletescape.lawnchair.ci.xml
+LOCAL_MODULE := privapp_whitelist_app.lawnchair.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions
@@ -55,7 +55,7 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := privapp_whitelist_ch.deletescape.lawnchair.ci-ext.xml
+LOCAL_MODULE := privapp_whitelist_app.lawnchair-ext.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions

@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <permissions>
-    <privapp-permissions package="ch.deletescape.lawnchair.ci">
+    <privapp-permissions package="app.lawnchair">
         <permission name="android.permission.BIND_APPWIDGET"/>
         <permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS"/>

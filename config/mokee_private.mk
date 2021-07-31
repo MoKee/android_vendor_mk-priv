@@ -16,10 +16,14 @@
 
 # Use all private apps
 PRODUCT_PACKAGES += \
+    Lawnchair \
     MoKeePay \
     Phonograph \
     ViaBrowser \
     WarpShare
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Lawnchair
 
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
