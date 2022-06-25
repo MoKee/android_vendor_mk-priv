@@ -19,11 +19,13 @@ PRODUCT_PACKAGES += \
     Lawnchair \
     MoKeePay \
     Phonograph \
+    TrebuchetQuickStep \
     ViaBrowser \
     WarpShare
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Lawnchair
+    Lawnchair \
+    TrebuchetQuickStep
 
 # Use all private libraries
 ifeq ($(MK_CPU_ABI),arm64-v8a)
