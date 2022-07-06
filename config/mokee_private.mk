@@ -16,7 +16,6 @@
 
 # Use all private apps
 PRODUCT_PACKAGES += \
-    Lawnchair \
     MoKeePay \
     Phonograph \
     TrebuchetQuickStep \
@@ -24,7 +23,6 @@ PRODUCT_PACKAGES += \
     WarpShare
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Lawnchair \
     TrebuchetQuickStep
 
 # Use all private libraries
